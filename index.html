@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Name Generator - Discover Your Chinese Identity</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Apple系统字体和中文字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=SF+Pro+Display:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 头部区域 -->
+        <header class="header">
+            <!-- 国庆节装饰 -->
+            <div class="national-day-banner">
+                <div class="flag-decoration">🇨🇳</div>
+                <div class="celebration-text">
+                    <span class="celebration-main">Happy National Day!</span>
+                    <span class="celebration-zh">庆祝中华人民共和国成立75周年</span>
+                </div>
+                <div class="fireworks">✨🎆✨</div>
+            </div>
+            
+            <div class="logo-section">
+                <div class="logo-icon">中</div>
+                <div class="brand-text">
+                    <h1 class="main-title">Chinese Name Generator</h1>
+                    <p class="brand-subtitle">Discover Your Chinese Identity</p>
+                </div>
+            </div>
+            <p class="hero-description">
+                Create meaningful Chinese names with rich cultural heritage and beautiful symbolism
+            </p>
+            <p class="hero-description-zh">为您创造富有文化内涵和美好寓意的中文名字</p>
+            
+            <!-- 节日祝福 -->
+            <div class="holiday-greeting">
+                <p class="greeting-text">🏮 Celebrating 75 Years of the People's Republic of China 🏮</p>
+                <p class="greeting-zh">祝愿祖国繁荣昌盛，人民幸福安康！</p>
+            </div>
+        </header>
+
+        <!-- 输入区域 -->
+        <section class="input-section">
+            <div class="input-card">
+                <div class="input-header">
+                    <h2 class="input-title">Enter Your Name</h2>
+                    <p class="input-subtitle">输入您的英文名</p>
+                </div>
+                <div class="input-field-container">
+                    <input 
+                        type="text" 
+                        id="englishName" 
+                        class="name-input" 
+                        placeholder="e.g., John, Mary, David"
+                        maxlength="50"
+                    >
+                    <button id="generateBtn" class="generate-btn">
+                        <span class="btn-icon">✨</span>
+                        <span class="btn-text">Generate Names</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 加载动画 -->
+        <div id="loading" class="loading hidden">
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Creating your Chinese names...</p>
+                <p class="loading-text-zh">正在为您生成中文名字</p>
+            </div>
+        </div>
+
+        <!-- 结果展示区域 -->
+        <section id="results" class="results-section hidden">
+            <div class="results-header">
+                <h3 class="results-title">Your Chinese Names</h3>
+                <p class="results-subtitle">为您推荐的中文名字</p>
+            </div>
+            <div class="names-grid" id="namesGrid">
+                <!-- 中文名卡片将通过JavaScript动态生成 -->
+            </div>
+        </section>
+
+        <!-- 使用说明 -->
+        <section class="how-it-works">
+            <div class="section-header">
+                <h3 class="section-title">How It Works</h3>
+                <p class="section-subtitle">使用方法</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-icon">1</div>
+                    <h4 class="step-title">Enter Your Name</h4>
+                    <p class="step-description">Type your English name in the input field</p>
+                    <p class="step-description-zh">在输入框中输入您的英文名</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">2</div>
+                    <h4 class="step-title">Generate Names</h4>
+                    <p class="step-description">Click the generate button to create your Chinese names</p>
+                    <p class="step-description-zh">点击生成按钮创建中文名字</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">3</div>
+                    <h4 class="step-title">Discover Meanings</h4>
+                    <p class="step-description">Explore 3 unique names with cultural significance</p>
+                    <p class="step-description-zh">探索三个具有文化意义的独特名字</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部区域 -->
+        <footer class="footer">
+            <!-- 国庆节装饰条 -->
+            <div class="national-day-footer">
+                <div class="lantern-decoration">🏮</div>
+                <div class="national-day-message">
+                    <span class="footer-celebration">Happy 75th National Day of China!</span>
+                    <span class="footer-celebration-zh">中华人民共和国成立75周年快乐！</span>
+                </div>
+                <div class="lantern-decoration">🏮</div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">Chinese Name Generator</div>
+                    <p class="footer-tagline">Bridging cultures through meaningful names</p>
+                    <p class="footer-tagline-zh">通过有意义的名字连接文化</p>
+                </div>
+                <div class="footer-info">
+                    <p class="footer-text">Powered by DeepSeek AI © 2024</p>
+                    <p class="footer-note">Each name is crafted with cultural heritage and beautiful symbolism</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 引入JavaScript文件 -->
+    <script src="script.js"></script>
+</body>
+</html>

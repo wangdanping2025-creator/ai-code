@@ -1,0 +1,906 @@
+/* Apple风格中文名生成器 - 融合中国红元素 */
+
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apple风格设计变量 - 融入中国红 */
+:root {
+    /* 中国红主题色彩 */
+    --chinese-red: #DC143C;
+    --chinese-red-light: #FF4757;
+    --chinese-red-dark: #B91C3C;
+    --chinese-red-subtle: rgba(220, 20, 60, 0.1);
+    
+    /* Apple风格中性色彩 */
+    --white: #FFFFFF;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+    
+    /* 金色点缀 */
+    --gold: #F59E0B;
+    --gold-light: #FCD34D;
+    
+    /* Apple系统字体 */
+    --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+    --font-chinese: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    
+    /* 间距系统 */
+    --space-1: 0.25rem;  /* 4px */
+    --space-2: 0.5rem;   /* 8px */
+    --space-3: 0.75rem;  /* 12px */
+    --space-4: 1rem;     /* 16px */
+    --space-5: 1.25rem;  /* 20px */
+    --space-6: 1.5rem;   /* 24px */
+    --space-8: 2rem;     /* 32px */
+    --space-10: 2.5rem;  /* 40px */
+    --space-12: 3rem;    /* 48px */
+    --space-16: 4rem;    /* 64px */
+    --space-20: 5rem;    /* 80px */
+    
+    /* 圆角系统 */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-full: 9999px;
+    
+    /* 阴影系统 */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-red: 0 10px 15px -3px rgba(220, 20, 60, 0.1), 0 4px 6px -2px rgba(220, 20, 60, 0.05);
+}
+
+/* 基础body样式 - Apple风格 + 国庆节主题 */
+body {
+    font-family: var(--font-system);
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
+        linear-gradient(135deg, var(--gray-50) 0%, var(--white) 50%, var(--gray-50) 100%);
+    color: var(--gray-900);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* 国庆节背景装饰 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(220, 20, 60, 0.1), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(245, 158, 11, 0.1), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(220, 20, 60, 0.1), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(245, 158, 11, 0.1), transparent);
+    background-repeat: repeat;
+    background-size: 150px 100px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 主容器样式 - Apple风格 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 头部区域样式 - Apple风格 + 国庆节主题 */
+.header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    padding: var(--space-16) 0 var(--space-12);
+    position: relative;
+}
+
+/* 国庆节横幅 */
+.national-day-banner {
+    background: linear-gradient(135deg, var(--chinese-red) 0%, var(--chinese-red-light) 100%);
+    color: var(--white);
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    box-shadow: var(--shadow-red);
+    animation: celebrationGlow 3s ease-in-out infinite alternate;
+}
+
+.flag-decoration {
+    font-size: 2rem;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.celebration-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.celebration-main {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.celebration-zh {
+    font-family: var(--font-chinese);
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.fireworks {
+    font-size: 1.5rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* 节日祝福 */
+.holiday-greeting {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--gray-900);
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-8);
+    box-shadow: var(--shadow-md);
+}
+
+.greeting-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+}
+
+.greeting-zh {
+    font-family: var(--font-chinese);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.logo-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--chinese-red) 0%, var(--chinese-red-light) 100%);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-chinese);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    box-shadow: var(--shadow-red);
+}
+
+.brand-text {
+    text-align: left;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-1);
+    letter-spacing: -0.025em;
+}
+
+.brand-subtitle {
+    font-size: 1.125rem;
+    color: var(--chinese-red);
+    font-weight: 500;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    margin-bottom: var(--space-2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-description-zh {
+    font-family: var(--font-chinese);
+    font-size: 1rem;
+    color: var(--gray-500);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 输入区域样式 - Apple风格 */
+.input-section {
+    margin-bottom: var(--space-16);
+    display: flex;
+    justify-content: center;
+}
+
+.input-card {
+    background: var(--white);
+    padding: var(--space-10);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--gray-200);
+}
+
+.input-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.input-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+}
+
+.input-subtitle {
+    font-family: var(--font-chinese);
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.input-field-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.name-input {
+    width: 100%;
+    padding: var(--space-4) var(--space-5);
+    font-size: 1.125rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    background: var(--gray-50);
+    transition: all 0.2s ease;
+    font-family: var(--font-system);
+    text-align: center;
+    color: var(--gray-900);
+}
+
+.name-input:focus {
+    outline: none;
+    border-color: var(--chinese-red);
+    background: var(--white);
+    box-shadow: 0 0 0 3px var(--chinese-red-subtle);
+    transform: translateY(-1px);
+}
+
+.name-input::placeholder {
+    color: var(--gray-400);
+    font-weight: 400;
+}
+
+.generate-btn {
+    width: 100%;
+    padding: var(--space-4) var(--space-6);
+    background: linear-gradient(135deg, var(--chinese-red) 0%, var(--chinese-red-light) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    box-shadow: var(--shadow-md);
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, var(--chinese-red-dark) 0%, var(--chinese-red) 100%);
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+}
+
+.generate-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-icon {
+    font-size: 1.25rem;
+}
+
+.btn-text {
+    font-family: var(--font-system);
+    font-weight: 600;
+}
+
+/* 加载动画样式 - Apple风格 */
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-16);
+}
+
+.loading-container {
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(--gray-200);
+    border-top: 3px solid var(--chinese-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto var(--space-6);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.125rem;
+    color: var(--gray-700);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+}
+
+.loading-text-zh {
+    font-family: var(--font-chinese);
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+/* 结果展示区域样式 - Apple风格 */
+.results-section {
+    margin-bottom: var(--space-16);
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.results-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.025em;
+}
+
+.results-subtitle {
+    font-family: var(--font-chinese);
+    font-size: 1rem;
+    color: var(--gray-500);
+}
+
+.names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+/* 中文名卡片样式 - Apple风格 */
+.name-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.name-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, var(--chinese-red) 0%, var(--chinese-red-light) 100%);
+}
+
+.name-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--chinese-red-subtle);
+}
+
+.chinese-name {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--chinese-red);
+    text-align: center;
+    margin-bottom: var(--space-3);
+    font-family: var(--font-chinese);
+}
+
+.pinyin {
+    font-family: var(--font-system);
+    font-size: 1rem;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: var(--space-6);
+    font-weight: 500;
+    font-style: italic;
+}
+
+.meaning-section {
+    margin-bottom: var(--space-5);
+}
+
+.meaning-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.meaning-text {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
+/* How It Works 区域样式 - Apple风格 */
+.how-it-works {
+    margin-bottom: var(--space-16);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.025em;
+}
+
+.section-subtitle {
+    font-family: var(--font-chinese);
+    font-size: 1rem;
+    color: var(--gray-500);
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+}
+
+.step-card {
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--chinese-red) 0%, var(--chinese-red-light) 100%);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 auto var(--space-4);
+    box-shadow: var(--shadow-red);
+}
+
+.step-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+}
+
+.step-description {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin-bottom: var(--space-2);
+    line-height: 1.5;
+}
+
+.step-description-zh {
+    font-family: var(--font-chinese);
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    line-height: 1.4;
+}
+
+/* 底部区域样式 - Apple风格 + 国庆节主题 */
+.footer {
+    margin-top: auto;
+    padding: var(--space-12) 0;
+    border-top: 1px solid var(--gray-200);
+}
+
+/* 国庆节底部装饰 */
+.national-day-footer {
+    background: linear-gradient(135deg, var(--chinese-red-dark) 0%, var(--chinese-red) 100%);
+    color: var(--white);
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    box-shadow: var(--shadow-md);
+}
+
+.lantern-decoration {
+    font-size: 1.5rem;
+    animation: swing 3s ease-in-out infinite;
+}
+
+.national-day-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.footer-celebration {
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.footer-celebration-zh {
+    font-family: var(--font-chinese);
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-6);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.footer-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin-bottom: var(--space-1);
+}
+
+.footer-tagline-zh {
+    font-family: var(--font-chinese);
+    font-size: 0.8rem;
+    color: var(--gray-500);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.footer-text {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    max-width: 400px;
+}
+
+/* 工具类 */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--space-6) var(--space-4);
+    }
+    
+    /* 国庆节横幅响应式 */
+    .national-day-banner {
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-4);
+    }
+    
+    .flag-decoration {
+        font-size: 1.5rem;
+    }
+    
+    .celebration-main {
+        font-size: 1.125rem;
+    }
+    
+    .celebration-zh {
+        font-size: 0.75rem;
+    }
+    
+    .fireworks {
+        font-size: 1.25rem;
+    }
+    
+    /* 节日祝福响应式 */
+    .holiday-greeting {
+        padding: var(--space-4) var(--space-5);
+    }
+    
+    .greeting-text {
+        font-size: 1rem;
+    }
+    
+    .greeting-zh {
+        font-size: 0.875rem;
+    }
+    
+    /* 底部国庆装饰响应式 */
+    .national-day-footer {
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-3) var(--space-4);
+    }
+    
+    .lantern-decoration {
+        font-size: 1.25rem;
+    }
+    
+    .footer-celebration {
+        font-size: 0.875rem;
+    }
+    
+    .footer-celebration-zh {
+        font-size: 0.75rem;
+    }
+    
+    .logo-section {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+    
+    .brand-text {
+        text-align: center;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.125rem;
+    }
+    
+    .input-card {
+        padding: var(--space-8);
+    }
+    
+    .names-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+    
+    .chinese-name {
+        font-size: 2rem;
+    }
+    
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    .footer-content {
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.75rem;
+    }
+    
+    .input-card {
+        padding: var(--space-6);
+    }
+    
+    .name-card {
+        padding: var(--space-6);
+    }
+    
+    .chinese-name {
+        font-size: 1.75rem;
+    }
+    
+    .step-card {
+        padding: var(--space-6);
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 国庆节动画效果 */
+@keyframes celebrationGlow {
+    0% {
+        box-shadow: var(--shadow-red);
+    }
+    100% {
+        box-shadow: 0 10px 30px -3px rgba(220, 20, 60, 0.3), 0 4px 6px -2px rgba(220, 20, 60, 0.15);
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    33% {
+        transform: rotate(-5deg);
+    }
+    66% {
+        transform: rotate(5deg);
+    }
+}
+
+/* 飘落的花瓣效果 */
+@keyframes petals {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.name-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.name-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.name-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.name-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--chinese-red);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--chinese-red-dark);
+}
