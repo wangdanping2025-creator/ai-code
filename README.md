@@ -4,7 +4,7 @@
 
 An AI-powered web application that helps foreigners discover meaningful Chinese names with rich cultural heritage and beautiful symbolism. Built with Apple-style design and festive National Day theme.
 
-[🌐 **Live Demo**](https://your-demo-url.com) | [📖 **中文文档**](#中文文档)
+[🌐 **Live Demo**](https://ai-code-nu.vercel.app) | [📖 **中文文档**](#中文文档)
 
 ![Chinese Name Generator](https://img.shields.io/badge/Chinese%20Name-Generator-red?style=for-the-badge&logo=china&logoColor=white)
 ![National Day](https://img.shields.io/badge/National%20Day-75th%20Anniversary-gold?style=for-the-badge&logo=fireworks&logoColor=white)
